@@ -1,2 +1,2 @@
-# Tensor-Lib_by_Undefined
+# Tensor Lib by Undefined
 Simple C lib for tensor
