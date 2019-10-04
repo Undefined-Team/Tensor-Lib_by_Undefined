@@ -18,7 +18,7 @@ ud_tensor *ud_tens_init(ud_arr *shape)
     ud_ut_free(shape);
 
     ud_tensor *new_tensor = ud_tens_init_ctr(a_shape, shape_len);
-    
+
     return new_tensor;
 }
 
