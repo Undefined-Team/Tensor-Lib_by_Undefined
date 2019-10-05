@@ -30,5 +30,6 @@ size_t          *ud_tens_shape_mult(size_t *shape, ud_ut_count shape_len);
 void            ud_tens_print(ud_tensor *tensor);
 float           ud_tens_get_val(ud_tensor *tensor, size_t *coord);
 float           *ud_tens_get_pval(ud_tensor *tensor, size_t *coord);
+ud_tensor       *ud_tens_cpy(ud_tensor *tensor_src);
 
 #endif
