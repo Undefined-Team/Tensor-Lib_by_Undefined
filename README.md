@@ -1,2 +1,2 @@
 # Tensor Lib by Undefined
-Simple C lib for tensor
+C lib for tensor
