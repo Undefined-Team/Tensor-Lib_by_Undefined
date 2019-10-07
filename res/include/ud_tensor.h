@@ -31,5 +31,16 @@ void            ud_tens_print(ud_tensor *tensor);
 float           ud_tens_get_val(ud_tensor *tensor, size_t *coord);
 float           *ud_tens_get_pval(ud_tensor *tensor, size_t *coord);
 ud_tensor       *ud_tens_cpy(ud_tensor *tensor_src);
+ud_tensor       *ud_tens_get(ud_tensor *tensor, ud_arr_size_t_a *coord);
+ud_tensor       *ud_tens_get_cpy(ud_tensor *tensor, ud_arr_size_t_a *coord);
+ud_tensor       *ud_tens_flatten_cpy(ud_tensor *tensor);
+ud_tensor       *ud_tens_flatten(ud_tensor *tensor);
+void            ud_tens_free(ud_tensor *tensor);
+ud_tensor       *ud_tens_reshape_cpy(ud_tensor *tensor, ud_arr_size_t_a *shape);
+ud_tensor       *ud_tens_reshape(ud_tensor *tensor, ud_arr_size_t_a *shape);
+void            ud_tens_transpose(ud_tensor *tensor, ud_arr_size_t_a *new_dim);
+ud_tensor       *ud_tens_transpose_cpy(ud_tensor *tensor, ud_arr_size_t_a *new_dim);
+ud_tensor       *ud_tens_dot(ud_tensor *a, ud_tensor *b, ud_arr *axis);
+ud_tensor       *ud_tens_matrixdot(ud_tensor *a, ud_tensor *b);
 
 #endif
