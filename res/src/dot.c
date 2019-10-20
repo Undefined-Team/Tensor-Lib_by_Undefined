@@ -6,10 +6,7 @@ ud_arr      *ud_tens_get_counter_axis(size_t len, ud_arr *axis)
     size_t          j_b = 0;
     ud_arr          *counter_axis;
 
-    counter_axis = ud_arr_init(sizeof(ud_arr *), 2);
-    ((ud_arr **)counter_axis->val)[0] = ud_arr_init(sizeof(size_t), len - ((ud_arr **)axis->val)[0]->len);
-    ((ud_arr **)counter_axis->val)[1] = ud_arr_init(sizeof(size_t), len - ((ud_arr **)axis->val)[0]->len);
-
+    counter_axis = ud_arr_set(ud_arr *, ud_arr_init(size_t, len - ((ud_arr **)axis->val)[0]->len), ud_arr_init(size_t, len - ((ud_arr **)axis->val)[0]->len));
     size_t *t_axis_a_val = (size_t *)((ud_arr **)axis->val)[0]->val;
     size_t *t_axis_b_val = (size_t *)((ud_arr **)axis->val)[1]->val;
     size_t *t_counter_axis_a_val = (size_t *)((ud_arr **)counter_axis->val)[0]->val;
@@ -36,7 +33,7 @@ ud_arr      *ud_tens_get_counter_axis(size_t len, ud_arr *axis)
 
 ud_arr      *ud_tens_dot_shape_mult(ud_tensor *a, ud_tensor *b, ud_arr *axis, ud_arr *counter_axis, ud_arr *mem_shapes)
 {
-    ud_arr  *shape_mult = ud_arr_init(sizeof(ud_arr *), 2);
+    ud_arr  *shape_mult = ud_arr_init(ud_arr *, 2);
     size_t axis_len = ((ud_arr **)axis->val)[0]->len;
     size_t counter_axis_len = a->shape_len - ((ud_arr **)axis->val)[0]->len;
 
@@ -65,8 +62,8 @@ ud_arr      *ud_tens_dot_shape_mult(ud_tensor *a, ud_tensor *b, ud_arr *axis, ud
         t_mem_shapes_val[i] = val_a;
         t_mem_shapes_val[i + counter_axis_len] = val_b;
     }
-    ((ud_arr **)shape_mult->val)[0] = ud_arr_set(size_t, 2, m_a, n_a);
-    ((ud_arr **)shape_mult->val)[1] = ud_arr_set(size_t, 2, n_b, m_b);
+    ((ud_arr **)shape_mult->val)[0] = ud_arr_set(size_t, m_a, n_a);
+    ((ud_arr **)shape_mult->val)[1] = ud_arr_set(size_t, n_b, m_b);
     return (shape_mult);
 }
 
@@ -76,12 +73,12 @@ ud_tensor   *ud_tens_dot(ud_tensor *a, ud_tensor *b, ud_arr *axis)
     ud_arr *counter_axis;
     size_t  tens_len = a->shape_len;
     size_t  axis_len = ((ud_arr **)axis->val)[0]->len;
-    ud_arr *mem_shapes = ud_arr_init(sizeof(size_t), (tens_len - axis_len) * 2);
+    ud_arr *mem_shapes = ud_arr_init(size_t, (tens_len - axis_len) * 2);
 
     counter_axis = (tens_len > axis_len ? ud_tens_get_counter_axis(tens_len, axis) : NULL);
     shape_mult = ud_tens_dot_shape_mult(a, b, axis, counter_axis, mem_shapes);
-    ud_arr *new_dim_a = ud_arr_init(sizeof(size_t), tens_len);
-    ud_arr *new_dim_b = ud_arr_init(sizeof(size_t), tens_len);
+    ud_arr *new_dim_a = ud_arr_init(size_t, tens_len);
+    ud_arr *new_dim_b = ud_arr_init(size_t, tens_len);
     size_t  *t_new_dima_val = (size_t *)new_dim_a->val;
     size_t  *t_new_dimb_val = (size_t *)new_dim_b->val;
     size_t  *t_axisa_val = (size_t *)((ud_arr **)axis->val)[0]->val;
