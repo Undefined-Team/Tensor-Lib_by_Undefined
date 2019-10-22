@@ -6,6 +6,7 @@
 #include <ud_memory.h>
 #include <ud_array.h>
 #include <ud_math.h>
+#include <ud_math_array.h>
 
 // Macro
 

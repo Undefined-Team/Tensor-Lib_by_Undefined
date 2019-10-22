@@ -6,7 +6,7 @@ ud_arr      *ud_tens_get_counter_axis(size_t len, ud_arr *axis)
     size_t          j_b = 0;
     ud_arr          *counter_axis;
 
-    counter_axis = ud_arr_tset(ud_arr_type_arr(), ud_arr_tinit(ud_matha_type_size_t(), len - ((ud_arr **)axis->val)[0]->len), ud_arr_tinit(ud_matha_type_size_t(), len - ((ud_arr **)axis->val)[0]->len));
+    counter_axis = ud_arr_tset(ud_arr *, ud_arr_type_arr(), ud_arr_tinit(ud_matha_type_size_t(), len - ((ud_arr **)axis->val)[0]->len), ud_arr_tinit(ud_matha_type_size_t(), len - ((ud_arr **)axis->val)[0]->len));
     size_t *t_axis_a_val = (size_t *)((ud_arr **)axis->val)[0]->val;
     size_t *t_axis_b_val = (size_t *)((ud_arr **)axis->val)[1]->val;
     size_t *t_counter_axis_a_val = (size_t *)((ud_arr **)counter_axis->val)[0]->val;
@@ -62,8 +62,8 @@ ud_arr      *ud_tens_dot_shape_mult(ud_tensor *a, ud_tensor *b, ud_arr *axis, ud
         t_mem_shapes_val[i] = val_a;
         t_mem_shapes_val[i + counter_axis_len] = val_b;
     }
-    ((ud_arr **)shape_mult->val)[0] = ud_arr_tset(ud_matha_type_size_t(), m_a, n_a);
-    ((ud_arr **)shape_mult->val)[1] = ud_arr_tset(ud_matha_type_size_t(), n_b, m_b);
+    ((ud_arr **)shape_mult->val)[0] = ud_arr_tset(size_t, ud_matha_type_size_t(), m_a, n_a);
+    ((ud_arr **)shape_mult->val)[1] = ud_arr_tset(size_t, ud_matha_type_size_t(), n_b, m_b);
     return (shape_mult);
 }
 
