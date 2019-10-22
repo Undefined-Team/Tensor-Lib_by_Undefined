@@ -12,7 +12,7 @@ ud_tensor   *ud_tens_matrixdot(ud_tensor *a, ud_tensor *b)
         ud_ut_error("Can't do matrix dot product on tensor with %zd dimensions and tensor with %zd dimensions.\n", a->shape_len, b->shape_len);
     else if (y_a != x_b)
         ud_ut_error("Matrix [%zd, %zd] incompatible with matrix [%zd, %zd].\n", x_a, y_a, x_b, y_b);
-    result = ud_tens_init(ud_arr_set(size_t, x_a, y_b));
+    result = ud_tens_init(ud_arr_tset(ud_arr_type_arr(), x_a, y_b));
 
     float *t_result_val = (float *)result->val;
     float *t_a_val = (float *)a->val;
