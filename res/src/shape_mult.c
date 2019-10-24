@@ -3,7 +3,7 @@
 size_t     *ud_tens_shape_mult_init(size_t *shape, ud_ut_count shape_len, size_t *len)
 {
     size_t *shape_m;
-    UD_UT_PROT_MALLOC(shape_m = ud_ut_malloc(sizeof(size_t) * shape_len));
+    ud_ut_prot_malloc(shape_m = ud_ut_malloc(sizeof(size_t) * shape_len));
     --shape_len;
     size_t *shape_m_tmp = &shape_m[shape_len];
     size_t *shape_m_tmp_2 = shape_m_tmp - 1;
@@ -24,7 +24,7 @@ size_t     *ud_tens_shape_mult_init(size_t *shape, ud_ut_count shape_len, size_t
 size_t     *ud_tens_shape_mult(size_t *shape, ud_ut_count shape_len)
 {
     size_t *shape_m;
-    UD_UT_PROT_MALLOC(shape_m = ud_ut_malloc(sizeof(size_t) * shape_len));
+    ud_ut_prot_malloc(shape_m = ud_ut_malloc(sizeof(size_t) * shape_len));
     --shape_len;
     size_t *shape_m_tmp = &shape_m[shape_len];
     size_t *shape_m_tmp_2 = shape_m_tmp - 1;

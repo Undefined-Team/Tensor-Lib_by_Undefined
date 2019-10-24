@@ -22,7 +22,7 @@ static size_t       *ud_get_new_shape(size_t *shape, ud_arr_size_t_a *new_dim)
 {
     size_t shape_len = new_dim->len; // WARNING IF MAKE FEATURE OF 1 DIM GUESS
     size_t *new_shape;
-    UD_UT_PROT_MALLOC(new_shape = ud_ut_malloc(sizeof(size_t) * shape_len));
+    ud_ut_prot_malloc(new_shape = ud_ut_malloc(sizeof(size_t) * shape_len));
     size_t *a_new_shape = new_shape;
     size_t *a_new_dim = (size_t*)new_dim->val;
     while (shape_len-- > 0) *a_new_shape++ = shape[*a_new_dim++];
@@ -101,7 +101,7 @@ ud_tensor       *ud_tens_transpose_cpy(ud_tensor *tensor, ud_arr_size_t_a *new_d
     for (ud_ut_count i = 0; i < shape_len; ++i) *++coord_x = 0;
 
     float *new_val;
-    UD_UT_PROT_MALLOC(new_val = ud_ut_malloc(sizeof(float) * len));
+    ud_ut_prot_malloc(new_val = ud_ut_malloc(sizeof(float) * len));
     float *end_val = new_val + (len - 1);
     float *beg_val = new_val;
     float *t_beg_val = tensor->val;

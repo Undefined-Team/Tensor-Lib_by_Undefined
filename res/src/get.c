@@ -3,7 +3,7 @@
 static size_t *ud_tens_comp_coord(size_t *coord, size_t len, size_t real_len)
 {
     size_t *new_coord;
-    UD_UT_PROT_MALLOC(new_coord = ud_ut_malloc(sizeof(size_t) * real_len));
+    ud_ut_prot_malloc(new_coord = ud_ut_malloc(sizeof(size_t) * real_len));
     size_t *new_coord_tmp = new_coord;
     real_len -= len;
     while (len--) *new_coord_tmp++ = *coord++;

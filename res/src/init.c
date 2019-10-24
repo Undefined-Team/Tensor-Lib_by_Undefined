@@ -6,7 +6,7 @@ ud_tensor *ud_tens_init_ctr(size_t *shape, size_t shape_len)
     size_t len;
     size_t *shape_m = ud_tens_shape_mult_init(shape, shape_len, &len);
     float *val;
-    UD_UT_PROT_MALLOC(val = ud_ut_malloc(sizeof(float) * len));
+    ud_ut_prot_malloc(val = ud_ut_malloc(sizeof(float) * len));
     ud_tensor *new_tensor = ud_tens_new(val, len, shape, shape_m, shape_len);
     return new_tensor;
 }
