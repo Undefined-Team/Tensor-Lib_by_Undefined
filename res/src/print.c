@@ -32,8 +32,9 @@ static void        ud_tens_print_ctr(ud_tensor *tensor, size_t space, size_t *co
     }
 }
 
-void        ud_tens_print(ud_tensor *tensor)
+void        ud_tens_print(void *v_tensor, ...)
 {
+    ud_tensor *tensor = (ud_tensor *)v_tensor;
     size_t coord[tensor->shape_len];
     ud_tens_print_ctr(tensor, 0, coord);
 }
