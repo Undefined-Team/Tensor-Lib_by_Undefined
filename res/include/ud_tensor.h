@@ -9,6 +9,7 @@
 #include <ud_math_array.h>
 
 // Macro
+# define ud_tens_print(tens)    ud_tens_print_ctr(&(tens))
 
 // Structures
 typedef struct  uds_tensor {
@@ -28,7 +29,7 @@ ud_tensor       *ud_tens_init_rand(ud_arr *shape, float bound_1, float bound_2);
 ud_tensor       *ud_tens_new(float *val, size_t len, size_t *shape, size_t *shape_m, size_t shape_len);
 size_t          *ud_tens_shape_mult_init(size_t *shape, ud_ut_count shape_len, size_t *len);
 size_t          *ud_tens_shape_mult(size_t *shape, ud_ut_count shape_len);
-void            ud_tens_print(void *v_tensor, ...);
+void            ud_tens_print_ctr(void *v_tensor, ...);
 float           ud_tens_get_val(ud_tensor *tensor, size_t *coord);
 float           *ud_tens_get_pval(ud_tensor *tensor, size_t *coord);
 ud_tensor       *ud_tens_cpy(ud_tensor *tensor_src);

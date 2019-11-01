@@ -6,7 +6,7 @@ ud_arr_type    *ud_tens_type_tens(void)
     if (!type_tensor)
     {
         type_tensor = ud_arr_type_get(ud_tensor*);
-        type_tensor->fp_print = &ud_tens_print;
+        type_tensor->fp_print = &ud_tens_print_ctr;
     }
     return type_tensor;
 }
