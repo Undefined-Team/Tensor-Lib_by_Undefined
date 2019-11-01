@@ -24,7 +24,7 @@ static void        ud_tens_print_ft(ud_tensor *tensor, size_t space, size_t *coo
         printf("%s[ %zd%s\n", ud_ut_color_t[rank % UD_UT_COLOR_NBR], rank, UD_UT_COLOR_N);
         for (size_t i = 0; i < shape[space]; i++)
         {
-            ud_tens_print_ctr(tensor, space + 1, coord);
+            ud_tens_print_ft(tensor, space + 1, coord);
             ++coord[space];
         }
         for (size_t i = 0; i < space; i++) printf("%*s", UD_UT_SPACE_NBR, "");
