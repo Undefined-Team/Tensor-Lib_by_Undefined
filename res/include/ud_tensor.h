@@ -43,5 +43,6 @@ void            ud_tens_transpose(ud_tensor *tensor, ud_arr_size_t_a *new_dim);
 ud_tensor       *ud_tens_transpose_cpy(ud_tensor *tensor, ud_arr_size_t_a *new_dim);
 ud_tensor       *ud_tens_dot(ud_tensor *a, ud_tensor *b, ud_arr *axis);
 ud_tensor       *ud_tens_matrixdot(ud_tensor *a, ud_tensor *b);
+ud_arr_type     *ud_tens_type_tens(void);
 
 #endif
