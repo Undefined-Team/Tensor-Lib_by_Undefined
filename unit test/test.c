@@ -26,7 +26,6 @@ int main(void)
     ud_tensor   *dot1 = ud_tens_init_val(ud_arr_set(size_t, 3,3,3,3,3), 2);
     ud_tensor   *dot2 = ud_tens_init_val(ud_arr_set(size_t, 3,4,3,4,3), 3);
     ud_arr      *axis = ud_arr_set(ud_arr *, ud_arr_set(size_t, 0,4), ud_arr_set(size_t, 4,0));
-    ud_tens_print(zero);
     float       dot_res = 54.0f;
 
     ud_ut_time("%s", "Starting tests...");
