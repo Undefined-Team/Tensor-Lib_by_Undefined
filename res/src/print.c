@@ -34,7 +34,9 @@ static void        ud_tens_print_ft(ud_tensor *tensor, size_t space, size_t *coo
 
 void        ud_tens_print_ctr(void *v_tensor, ...)
 {
+    if (!v_tensor) return;
     ud_tensor *tensor = *(ud_tensor **)v_tensor;
+    if (!tensor) return;
     size_t coord[tensor->shape_len];
     ud_tens_print_ft(tensor, 0, coord);
 }
